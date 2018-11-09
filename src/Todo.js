@@ -3,8 +3,7 @@ import './Todo.css'
 
 class Todo extends Component {
   render() {
-    const { text, onClickFunction } = this.props
-
+    const { text } = this.props
     return <li className="Todo">{text}</li>
   }
 }

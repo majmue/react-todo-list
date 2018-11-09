@@ -8,6 +8,9 @@ class Input extends Component {
         type="text"
         placeholder="Add your Todo in the List"
         className="Input"
+        onKeyUp={event => {
+          this.props.keyupfunction(event)
+        }}
       />
     )
   }

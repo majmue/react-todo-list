@@ -6,16 +6,26 @@ import Input from './Input'
 
 class App extends Component {
   state = {
-    todos: [
-      { text: 'Geschenke besorgen', done: false },
-      { text: 'Plätzchen backen', done: false },
-      { text: 'Weihnachtsbaum aussuchen', done: false }
-    ]
+    todos: []
   }
+
+  addTodoArray = event => {
+    if (event.key === 'Enter') {
+      const newEntry = [
+        { text: event.target.value, done: false },
+        ...this.state.todos
+      ]
+      this.setState({
+        todos: newEntry
+      })
+      event.target.value = ''
+    }
+  }
+
   render() {
     return (
       <div className="App">
-        <Input />
+        <Input keyupfunction={this.addTodoArray} />
         <div>
           {this.state.todos.map(todo => (
             <Todo key={todo.text} text={todo.text} />
