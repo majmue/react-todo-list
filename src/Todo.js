@@ -3,8 +3,17 @@ import './Todo.css'
 
 class Todo extends Component {
   render() {
-    const { text } = this.props
-    return <li className="Todo">{text}</li>
+    const { text, onToggle } = this.props
+    return (
+      <li
+        className="Todo"
+        click={index => {
+          onToggle(index)
+        }}
+      >
+        {text}
+      </li>
+    )
   }
 }
 
