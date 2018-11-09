@@ -9,7 +9,7 @@ class App extends Component {
     todos: []
   }
 
-  toogleDone = index => {
+  toggleDone = index => {
     const { todos } = this.state
     const newTodos = [
       ...todos.slice(0, index),
@@ -17,6 +17,12 @@ class App extends Component {
       ...todos.slice(index + 1)
     ]
     this.setState({ todos: newTodos })
+  }
+
+  deleteTodo = index => {
+    const { todos } = this.state
+    const newDelete = [...todos.slice(0, index), ...todos.slice(index + 1)]
+    this.setState({ todos: newDelete })
   }
 
   addTodoArray = event => {
@@ -36,17 +42,18 @@ class App extends Component {
     return (
       <div className="App">
         <Input keyupfunction={this.addTodoArray} />
-        <div>
+        <ul>
           {this.state.todos.map((todo, index) => {
             return (
               <Todo
                 key={todo.text}
                 text={todo.text}
-                onToggle={() => this.toogleDone(index)}
+                onToggle={() => this.toggleDone(index)}
+                onDelete={() => this.deleteTodo(index)}
               />
             )
           })}
-        </div>
+        </ul>
       </div>
     )
   }
