@@ -3,6 +3,7 @@ import './App.css'
 
 import Todo from './Todo'
 import Input from './Input'
+import Counter from './Counter'
 
 class App extends Component {
   state = {
@@ -39,8 +40,10 @@ class App extends Component {
   }
 
   render() {
+    const countTodos = this.state.todos.filter(todos => todos.isDone).length
     return (
       <div className="App">
+        <Counter count={countTodos} />
         <Input keyupfunction={this.addTodoArray} />
         <ul>
           {this.state.todos.map((todo, index) => {
