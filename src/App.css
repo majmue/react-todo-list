@@ -1,0 +1,20 @@
+body {
+  margin: 20px;
+  padding: 10px;
+  display: grid;
+  box-sizing: content-box;
+  background: #d2a65f;
+}
+
+.App {
+  max-width: 80vh;
+  min-height: 80vh;
+  border-radius: 10px;
+  margin: 20px;
+  background: #f2f1ec;
+}
+
+.isDone {
+  text-decoration: line-through;
+  color: gold;
+}

@@ -4,14 +4,16 @@ import './Input.css'
 class Input extends Component {
   render() {
     return (
-      <input
-        type="text"
-        placeholder="Add your Todo in the List"
-        className="Input"
-        onKeyUp={event => {
-          this.props.keyupfunction(event)
-        }}
-      />
+      <div className="input-wrapper">
+        <input
+          type="text"
+          placeholder="Add your todo in the list"
+          className="Input"
+          onKeyUp={event => {
+            this.props.keyupfunction(event)
+          }}
+        />
+      </div>
     )
   }
 }

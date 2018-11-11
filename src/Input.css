@@ -1,0 +1,18 @@
+.input-wrapper {
+  display: flex;
+  flex-direction: columns;
+  justify-content: center;
+  background: #f2f1ec;
+}
+
+.Input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  height: 30px;
+  width: 300px;
+  border: 2px dotted red;
+  font-size: 14px;
+  outline: none;
+}

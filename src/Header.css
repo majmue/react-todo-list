@@ -1,0 +1,15 @@
+.Header {
+  min-height: 30px;
+  width: auto;
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+  background: white;
+}
+
+div {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-style: bold;
+  font-size: 20px;
+  background: forestgreen;
+}

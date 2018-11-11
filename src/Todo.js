@@ -6,9 +6,10 @@ class Todo extends Component {
     const { text, onToggle, onDelete } = this.props
     return (
       <li>
-        <span onClick={onToggle} className="Todo" />
+        <span onClick={onToggle} className="Todo">
+          {text}
+        </span>
         <button onClick={onDelete}>&times;</button>
-        {text}
       </li>
     )
   }
