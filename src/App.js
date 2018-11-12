@@ -5,6 +5,7 @@ import Todo from './Todo'
 import Input from './Input'
 import Counter from './Counter'
 import Header from './Header'
+import Separator from '.Separator'
 
 class App extends Component {
   state = {
