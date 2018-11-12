@@ -8,7 +8,7 @@ import Header from './Header'
 
 class App extends Component {
   state = {
-    todos: []
+    todos: this.load()
   }
 
   toggleDone = index => {
@@ -42,26 +42,40 @@ class App extends Component {
 
   render() {
     const countTodos = this.state.todos.filter(todos => todos.isDone).length
-
     return (
       <div className="App">
         <Header />
         <Counter count={countTodos} />
-        <Input keyupfunction={this.addTodoArray} />
-        <ul>
-          {this.state.todos.map((todo, index) => {
-            return (
-              <Todo
-                key={todo.text}
-                text={todo.text}
-                onToggle={() => this.toggleDone(index)}
-                onDelete={() => this.deleteTodo(index)}
-              />
-            )
-          })}
-        </ul>
+        <Input handleKeyup={this.addTodoArray} />
+        <ul>{this.renderTodos()}</ul>
       </div>
     )
+  }
+
+  renderTodos() {
+    return this.state.todos.map((todo, index) => {
+      return (
+        <Todo
+          key={todo.text}
+          text={todo.text}
+          className={this.state.todos[index].isDone ? 'Todo done' : 'Todo'}
+          onToggle={() => this.toggleDone(index)}
+          onDelete={() => this.deleteTodo(index)}
+        />
+      )
+    })
+  }
+
+  save() {
+    localStorage.setItem('todo-app--xmas', JSON.stringify(this.state.todos))
+  }
+
+  load() {
+    try {
+      return JSON.parse(localStorage.getItem('todo-app--xmas')) || []
+    } catch (err) {
+      return []
+    }
   }
 }
 export default App

@@ -13,8 +13,3 @@ body {
   margin: 20px;
   background: #f2f1ec;
 }
-
-.isDone {
-  text-decoration: line-through;
-  color: gold;
-}

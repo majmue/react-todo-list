@@ -6,11 +6,10 @@ class Input extends Component {
     return (
       <div className="input-wrapper">
         <input
-          type="text"
           placeholder="Add your todo in the list"
           className="Input"
           onKeyUp={event => {
-            this.props.keyupfunction(event)
+            this.props.handleKeyup(event)
           }}
         />
       </div>
