@@ -43,28 +43,46 @@ class App extends Component {
 
   render() {
     const countTodos = this.state.todos.filter(todos => todos.isDone).length
+    this.save()
     return (
       <div className="App">
         <Header />
         <Counter count={countTodos} />
         <Input handleKeyup={this.addTodoArray} />
-        <ul>{this.renderTodos()}</ul>
+        <Separator text="TODO" />
+        {this.renderOpenTodos()}
+        <Separator text="DONE" />
+        {this.renderDoneTodos()}
       </div>
     )
   }
 
-  renderTodos() {
-    return this.state.todos.map((todo, index) => {
-      return (
+  renderOpenTodos() {
+    return this.state.todos
+      .filter(todo => !todo.done)
+      .map((todo, index) => (
         <Todo
-          key={todo.text}
+          key={index}
           text={todo.text}
           className={this.state.todos[index].isDone ? 'Todo done' : 'Todo'}
-          onToggle={() => this.toggleDone(index)}
+          onToggle={() => this.toggleTodo(index)}
           onDelete={() => this.deleteTodo(index)}
         />
-      )
-    })
+      ))
+  }
+
+  renderDoneTodos() {
+    return this.state.todos
+      .filter(todo => todo.done)
+      .map((todo, index) => (
+        <Todo
+          key={index}
+          text={todo.text}
+          done={todo.done}
+          onToggle={() => this.toggleTodo(index)}
+          onDelete={() => this.deleteTodo(index)}
+        />
+      ))
   }
 
   save() {
