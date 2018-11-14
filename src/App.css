@@ -7,7 +7,6 @@ body {
 }
 
 .App {
-  max-width: 80vh;
   min-height: 80vh;
   border-radius: 10px;
   margin: 20px;
