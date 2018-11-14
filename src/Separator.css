@@ -6,9 +6,10 @@
 .Separator .hr {
   width: 100%;
   margin: 0 10px;
-  border-bottom: 4px solid deeppink;
+  border-bottom: 4px solid forestgreen;
 }
 
 .Separator span {
   white-space: nowrap;
+  margin: 10px;
 }
